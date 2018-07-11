@@ -47,7 +47,8 @@ public class PutObject {
         if (flag)
         {
         	try {
-        		s3.putObject(bucket_name, key_name, file_path);
+        	        File file = new File(file_path);
+        		s3.putObject(new PutObjectRequest(bucket_name, key_name, file))	;
         	} catch (AmazonServiceException e) {
         		System.err.println(e.getErrorMessage());
         		System.exit(1);
